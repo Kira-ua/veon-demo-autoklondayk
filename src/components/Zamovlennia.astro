@@ -1,0 +1,32 @@
+---
+// «Як проходить замовлення»: one ruler of four unequal segments (3 · 4 · 4 · 6 columns). Facts: C-001, C-002.
+import Section from "./Section.astro";
+import CallButton from "./CallButton.astro";
+import ViberButton from "./ViberButton.astro";
+import { contacts } from "../data/site";
+const steps = [
+  { title: "Ви надсилаєте VIN, код або марку", text: `Телефоном ${contacts.phoneMain.label} або у Viber ${contacts.viber.label}.` },
+  { title: "Менеджер підбирає і підтверджує", text: "Перевіряє, що деталь підходить до вашого авто, і погоджує з вами замовлення." },
+  { title: "Оплата", text: "Готівкою в офісі або кур'єру, на картку ПриватБанку за домовленістю з менеджером або за рахунком." },
+  { title: "Самовивіз з Кирилівської або Нова Пошта", text: "Самовивіз у будні 11:00–18:00 після підтвердження. Кур'єр по Києву та області в будні з 18:00, Нова Пошта — по всій Україні." },
+];
+---
+<Section id="zamovlennia" class="steps-sec" rec="R-009">
+  <div class="wrap">
+    <h2 class="h2 steps-sec__title">Як проходить замовлення</h2>
+    <ol class="steps" data-reveal data-steps>
+      {steps.map((s, i) => (
+        <li class={`step step--${i + 1}`} style={`--step:${i}`}>
+          <span class="step__bar" aria-hidden="true"></span>
+          <span class="step__num">{i + 1}</span>
+          <h3 class="step__title">{s.title}</h3>
+          <p class="step__text">{s.text}</p>
+        </li>
+      ))}
+    </ol>
+    <div class="cta-row">
+      <CallButton label="Подзвонити менеджеру" />
+      <ViberButton label="Написати у Viber" />
+    </div>
+  </div>
+</Section>

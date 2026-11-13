@@ -1,0 +1,14 @@
+---
+// Main action: the red call button, phone number on the second line (concept: Call, 52 px, radius 12).
+import Icon from "./Icon.astro";
+import { contacts } from "../data/site";
+interface Props { label?: string; number?: boolean; class?: string; rec?: string; }
+const { label = "Подзвонити менеджеру", number = true, class: cls, rec = "R-002" } = Astro.props;
+---
+<a class:list={["btn btn--call", cls]} href={contacts.phoneMain.href} data-rec={rec}>
+  <Icon name="phone" />
+  <span class="btn__text">
+    <span class="btn__label">{label}</span>
+    {number && <span class="btn__sub">{contacts.phoneMain.label}</span>}
+  </span>
+</a>

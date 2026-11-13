@@ -1,0 +1,55 @@
+---
+// AutoKlondayk homepage. Concept: design/concept.md («Сторінка — це лінійка VIN»). Facts: veon/client.json.
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Pidbir from "../components/Pidbir.astro";
+import Zamovlennia from "../components/Zamovlennia.astro";
+import Katalog from "../components/Katalog.astro";
+import Marky from "../components/Marky.astro";
+import Umovy from "../components/Umovy.astro";
+import Pryhon from "../components/Pryhon.astro";
+import Kontakty from "../components/Kontakty.astro";
+import Footer from "../components/Footer.astro";
+import MobileBar from "../components/MobileBar.astro";
+import { contacts } from "../data/site";
+
+const h1 = "Автозапчастини для іномарок, підібрані за VIN-кодом вашого авто";
+const title = "Автозапчастини для іномарок у Києві — підбір за VIN | AutoKlondayk";
+const description =
+  "Підберемо запчастини за VIN, кодом або маркою авто. Самовивіз на Подолі (вул. Кирилівська, 60П), доставка Новою Поштою по Україні. Дзвоніть (067) 644-44-41.";
+
+// R-026: JSON-LD only from client.json; no url of the current domain.
+const ld = {
+  "@context": "https://schema.org",
+  "@type": "AutoPartsStore",
+  name: "AutoKlondayk",
+  legalName: contacts.legal,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: contacts.address,
+    addressLocality: contacts.city,
+    addressCountry: "UA",
+  },
+  telephone: ["+380676444441", "+380956444441"],
+  email: "autoklondayk1@gmail.com",
+  openingHours: "Mo-Fr 09:00-18:00",
+  hasMap: contacts.maps,
+  sameAs: [contacts.instagram],
+};
+---
+<Base lang="uk" title={title} description={description} rec="R-023">
+  <script slot="head" type="application/ld+json" is:inline data-rec="R-026" set:html={JSON.stringify(ld)} />
+  <Header slot="header" />
+  <Pidbir h1={h1} />
+  <Zamovlennia />
+  <Katalog />
+  <Marky />
+  <Umovy />
+  <Pryhon />
+  <Kontakty />
+  <Footer slot="footer" />
+  <MobileBar slot="footer" />
+  <script>
+    import "../scripts/site.ts";
+  </script>
+</Base>

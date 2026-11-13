@@ -1,0 +1,9 @@
+---
+// Bottom bar on phones: «Подзвонити» and «Viber», slides in after the first screen (site.ts adds .is-shown).
+import Icon from "./Icon.astro";
+import { contacts } from "../data/site";
+---
+<div class="mbar" data-mbar data-rec="R-002,G-R003">
+  <a class="mbar__call" href={contacts.phoneMain.href}><Icon name="phone" /><span>Подзвонити</span></a>
+  <a class="mbar__viber" href={contacts.viber.href}><Icon name="viber" /><span>Viber</span></a>
+</div>

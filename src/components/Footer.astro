@@ -1,0 +1,59 @@
+---
+// Footer: light, SEO paragraph, three columns, legal name (R-011, R-009).
+import FutureLink from "./FutureLink.astro";
+import { contacts, SOON } from "../data/site";
+import { asset } from "../lib/asset";
+---
+<footer id="footer" class="footer" data-rec="R-011">
+  <div class="wrap">
+    <p class="footer__seo">AutoKlondayk — інтернет-магазин автозапчастин для легкових авто іноземного та вітчизняного виробництва в Києві. Підбираємо деталі за VIN-кодом, кодом (артикулом) або маркою і моделлю авто: запчастини для ТО, двигуна, підвіски, гальмівної системи, кузов і оптику, оливи та автохімію. Самовивіз з офісу на Подолі (вул. Кирилівська, 60П), кур'єр по Києву та області, доставка Новою Поштою по всій Україні.</p>
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="#top" class="footer__logo" aria-label="AutoKlondayk — на початок сторінки">
+          <picture>
+            <source srcset={asset("img/logo.webp")} type="image/webp" />
+            <img src={asset("img/logo.png")} width="193" height="84" alt="AutoKlondayk" loading="lazy" decoding="async" />
+          </picture>
+        </a>
+        <p class="footer__legal" data-rec="R-009">{contacts.legal}</p>
+        <a class="footer__insta" href={contacts.instagram} target="_blank" rel="noopener noreferrer" data-rec="R-009,S-R010">Instagram<span class="visually-hidden"> (нова вкладка)</span></a>
+      </div>
+      <nav class="footer__col" aria-labelledby="f-buy">
+        <h2 class="footer__title" id="f-buy">Покупцям</h2>
+        <ul>
+          <li><a href="#zamovlennia">Як замовити</a></li>
+          <li><FutureLink note={SOON}>Доставка й оплата</FutureLink></li>
+          <li><FutureLink note={SOON}>Гарантія і повернення</FutureLink></li>
+          <li><FutureLink note={SOON}>Про компанію</FutureLink></li>
+          <li><FutureLink note={SOON}>Політика конфіденційності</FutureLink></li>
+        </ul>
+      </nav>
+      <nav class="footer__col" aria-labelledby="f-cat">
+        <h2 class="footer__title" id="f-cat">Каталог</h2>
+        <ul>
+          <li><FutureLink note={SOON}>Запчастини для ТО</FutureLink></li>
+          <li><FutureLink note={SOON}>Оливи та автохімія</FutureLink></li>
+          <li><FutureLink note={SOON}>Кузов і оптика</FutureLink></li>
+          <li><FutureLink note={SOON}>Усі групи</FutureLink></li>
+          <li><FutureLink note={SOON}>Пригон авто з США</FutureLink></li>
+        </ul>
+      </nav>
+      <div class="footer__col" data-rec="R-002">
+        <h2 class="footer__title">Контакти</h2>
+        <ul>
+          <li><a href={contacts.phoneMain.href}>{contacts.phoneMain.label}</a></li>
+          <li><a href={contacts.phoneSecond.href}>{contacts.phoneSecond.label}</a></li>
+          <li><a href={contacts.viber.href}>Viber {contacts.viber.label}</a></li>
+          <li><a href={contacts.email.href}>{contacts.email.label}</a></li>
+          <li>{contacts.address}, {contacts.city}</li>
+          <li>{contacts.hours}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <FutureLink note={SOON}>Кошик</FutureLink>
+      <FutureLink note={SOON}>Вхід для клієнтів</FutureLink>
+      <FutureLink note="Російська версія з'явиться в повній версії сайту">Російська версія</FutureLink>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,75 @@
+---
+// Header: blue over the first screen, white after it (site.ts toggles .is-solid). Burger below 1200 px.
+import FutureLink from "./FutureLink.astro";
+import Icon from "./Icon.astro";
+import { contacts, SOON } from "../data/site";
+import { asset } from "../lib/asset";
+
+const nav = [
+  { href: "#pidbir", label: "Підбір", rec: "R-003" },
+  { href: "#katalog", label: "Каталог" },
+  { href: "#umovy", label: "Доставка й оплата" },
+  { href: "#pryhon", label: "Пригон з США" },
+  { href: "#kontakty", label: "Контакти" },
+];
+---
+<header id="header" class="header" data-header>
+  <div class="header__bar wrap">
+    <a class="header__logo" href="#top" aria-label="AutoKlondayk — на початок сторінки">
+      <picture>
+        <source srcset={asset("img/logo.webp")} type="image/webp" />
+        <img src={asset("img/logo.png")} width="193" height="84" alt="AutoKlondayk" fetchpriority="high" />
+      </picture>
+    </a>
+
+    <nav class="header__nav" aria-label="Розділи головної">
+      <ul class="header__links">
+        {nav.map((n) => <li><a class="header__link" href={n.href} data-rec={n.rec}>{n.label}</a></li>)}
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <a class="header__phone" href={contacts.phoneMain.href} data-rec="R-002">
+        <span class="header__phone-note">Підбір і замовлення</span>
+        <span class="header__phone-num">{contacts.phoneMain.label}</span>
+      </a>
+      <a class="header__viber" href={contacts.viber.href} data-rec="R-002">
+        <Icon name="viber" /><span>Viber</span>
+      </a>
+      <div class="header__util">
+        <FutureLink note={SOON} class="header__future">Кошик</FutureLink>
+        <FutureLink note={SOON} class="header__future">Вхід</FutureLink>
+        <FutureLink note="Російська версія з'явиться в повній версії сайту" class="header__future header__future--end">RU</FutureLink>
+      </div>
+      <a class="header__call-m" href={contacts.phoneMain.href} data-rec="R-002">
+        <Icon name="phone" /><span>Дзвінок</span>
+      </a>
+      <button class="header__burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+        <span class="header__burger-open"><Icon name="menu" /></span>
+        <span class="header__burger-close"><Icon name="close" /></span>
+        <span class="visually-hidden" data-menu-label>Відкрити меню</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="menu" class="menu" data-menu>
+    <div class="menu__inner wrap">
+      <nav aria-label="Меню">
+        <ul class="menu__links">
+          {nav.map((n) => <li><a class="menu__link" href={n.href} data-rec={n.rec} data-menu-close>{n.label}</a></li>)}
+        </ul>
+      </nav>
+      <div class="menu__contacts" data-rec="R-002">
+        <a class="menu__phone" href={contacts.phoneMain.href}>{contacts.phoneMain.label}</a>
+        <a class="menu__phone2" href={contacts.phoneSecond.href}>{contacts.phoneSecond.label}</a>
+        <a class="btn btn--viber" href={contacts.viber.href}><Icon name="viber" /><span class="btn__label">Viber {contacts.viber.label}</span></a>
+        <p class="menu__hours">{contacts.hours}</p>
+      </div>
+      <div class="menu__util">
+        <FutureLink note={SOON}>Кошик</FutureLink>
+        <FutureLink note={SOON}>Вхід</FutureLink>
+        <FutureLink note="Російська версія з'явиться в повній версії сайту">RU</FutureLink>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,11 @@
+---
+// Secondary action: Viber chat, outline button (blue outline on light, white outline on blue/navy via .on-dark).
+import Icon from "./Icon.astro";
+import { contacts } from "../data/site";
+interface Props { label?: string; class?: string; rec?: string; }
+const { label = "Viber", class: cls, rec = "R-002" } = Astro.props;
+---
+<a class:list={["btn btn--viber", cls]} href={contacts.viber.href} data-rec={rec}>
+  <Icon name="viber" />
+  <span class="btn__label">{label}</span>
+</a>

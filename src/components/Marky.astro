@@ -1,0 +1,18 @@
+---
+// Brands: a typographic wall of the 25 brands from the client's homepage (C-005). No logos (third-party marks).
+import Section from "./Section.astro";
+import FutureLink from "./FutureLink.astro";
+import { brands, SOON } from "../data/site";
+---
+<Section id="marky" class="marky">
+  <div class="wrap marky__grid">
+    <div class="marky__head">
+      <h2 class="h2">Марки авто</h2>
+      <p class="marky__note">Тут 25 марок, у каталозі за авто їх 43. Модель і модифікацію менеджер уточнить за VIN.</p>
+      <FutureLink note={SOON} class="future-link--button">Усі 43 марки</FutureLink>
+    </div>
+    <ul class="marky__wall">
+      {brands.map((b) => <li><FutureLink note={SOON} class="brand">{b}</FutureLink></li>)}
+    </ul>
+  </div>
+</Section>

@@ -1,0 +1,63 @@
+/* Hallmark · shape: index-first stand of parts · genre: editorial · theme: custom · job: buy (visit) · idea: "Сторінка — лінійка VIN: 17 символів задають сітку, ритм і перший екран" · vibe: "точно, спокійно, по-майстерськи, київський Поділ"
+ * paper: #F2F5F8 (hero #1D5FA6) · accent: #C1121F · display: Sofia Sans Condensed · body: IBM Plex Sans · hero: синій екран із H1 зліва, білою панеллю «Знайти деталь» справа і лінійкою VIN на 17 колонок унизу · nav: синя смуга з якорями, номером і Viber, біла після першого екрана · footer: світлий, колонки Покупцям / Каталог / Контакти, ФОП · imagery: client photos (рубрикатор деталей) · signature: лінійка VIN
+ * axes: light/display-condensed/chromatic-blue · posture: committed · surface: absolute · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: imagery (у клієнта лише дрібні фото деталей), тому перший екран тримається на типографіці й лінійці VIN, фото — тільки в індексі каталогу 56 px і двох розділах */
+/* Hallmark · waive 7b · tokens.css --color-surface/--color-on-dark #FFFFFF · затверджена палітра concept.md («Surface #FFFFFF»): біла панель підбору і білі клітинки VIN на синьому — частина signature, фон сторінки вже тонований (#F2F5F8) */
+/* Hallmark · waive 23 · .kontakty__main червоний номер Sofia 800 · concept.md: червоний = дзвінок, «номер огромной Sofia 800 красным (tel:)»; це дія, а не декор, на екрані один червоний елемент */
+/* Hallmark · waive 44c · .finder на колонках 10–17 вирівняна по верху H1 · concept.md: панель «Знайти деталь» стоїть поруч із H1 від першого рядка, а signature VIN-лінійка під обома; вертикальне центрування відриває панель від заголовка */
+/* Hallmark · answer 28a · LCP — текст H1 першого екрана; зображення каталогу й футера нижче першого екрана, lazy навмисно */
+/* Client design tokens — only from design/concept.md (veon-concept: colors, fonts). */
+:root {
+  /* colour */
+  --color-bg: #F2F5F8;          /* ground */
+  --color-text: #0F1C2B;        /* ink */
+  --color-accent: #C1121F;      /* call red — тільки дзвінок і номер */
+  --color-accent-hover: #A51018;
+  --color-accent-ink: #FFFFFF;    /* текст на червоній кнопці, 6.22:1 */
+  --color-brand: #1D5FA6;       /* плашка логотипа, перший екран */
+  --color-brand-hover: #174E8A;
+  --color-surface: #FFFFFF;
+  --color-navy: #0E2C4D;        /* тільки пригон */
+  --color-muted: #4F6072;
+  --color-tint: #DCE7F2;
+  --color-border: #C9D4DF;
+  --color-field: #6B7C8D;
+  --color-on-blue-muted: #C9DBEE;
+  --color-on-dark: #FFFFFF;
+  --color-focus: var(--color-brand);
+
+  /* type */
+  --font-display: "Sofia Sans Condensed UK", "Sofia Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --fs-h1: clamp(42px, 6.2vw, 92px);
+  --fs-h2: clamp(34px, 1.6rem + 2.2vw, 56px);
+  --fs-h3: clamp(26px, 1.3rem + 0.8vw, 34px);
+  --fs-lead: clamp(18px, 1rem + 0.35vw, 22px);
+  --fs-body: clamp(16px, 0.95rem + 0.1vw, 17px);
+  --fs-small: 14px;
+
+  /* grid: 17 колонок = 17 символів VIN; 8 і 4 на планшеті й телефоні */
+  --cols: 4;
+  --gap: 16px;
+  --margin: 20px;
+  --container: 1440px;
+  --space: var(--margin);
+  --section-y: 72px;
+  --header-h: 64px;
+
+  /* shape */
+  --radius: 12px;
+  --radius-lg: 20px;
+  --control-h: 52px;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur: 600ms;
+  --dur-fast: 200ms;
+}
+@media (min-width: 768px) {
+  :root { --cols: 8; --margin: 40px; --section-y: 96px; --header-h: 72px; }
+}
+@media (min-width: 1200px) {
+  :root { --cols: 17; --margin: 56px; --section-y: 128px; --header-h: 80px; }
+}

@@ -1,0 +1,66 @@
+---
+// Catalogue: three highlighted sections (columns 1–9) and the index of 20 groups (10–17). All future pages.
+import Section from "./Section.astro";
+import FutureLink from "./FutureLink.astro";
+import Icon from "./Icon.astro";
+import { groups, SOON } from "../data/site";
+import { asset } from "../lib/asset";
+---
+<Section id="katalog" class="katalog" rec="R-005">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2">Каталог запчастин</h2>
+      <p class="lead sec-head__lead">Двадцять груп деталей для легкових авто, окремо — ТО, оливи й кузов. Не знаєте, де шукати, — назвіть деталь менеджеру.</p>
+    </div>
+    <div class="katalog__grid">
+      <div class="feature-list">
+        <article class="feature feature--to">
+          <div class="feature__body">
+            <h3 class="feature__title">Запчастини для ТО</h3>
+            <p class="feature__text">Деталі для планового технічного обслуговування вашого авто.</p>
+            <FutureLink note={SOON} class="feature__link">Відкрити розділ</FutureLink>
+          </div>
+          <picture class="feature__pic">
+            <img src={asset("img/filtry.webp")} width="240" height="180" alt="Фільтри — фото з каталогу AutoKlondayk" loading="lazy" decoding="async" />
+          </picture>
+        </article>
+        <article class="feature feature--oil">
+          <div class="feature__body">
+            <h3 class="feature__title">Оливи та автохімія</h3>
+            <p class="feature__text">Моторна і трансмісійна олива, антифриз, гальмівна рідина, присадки.</p>
+            <FutureLink note={SOON} class="feature__link">Відкрити розділ</FutureLink>
+          </div>
+        </article>
+        <article class="feature feature--body">
+          <div class="feature__body">
+            <h3 class="feature__title">Кузов і оптика</h3>
+            <p class="feature__text">Деталі кузова, фари, ліхтарі.</p>
+            <FutureLink note={SOON} class="feature__link">Відкрити розділ</FutureLink>
+          </div>
+          <picture class="feature__pic">
+            <img src={asset("img/optyka.webp")} width="240" height="180" alt="Фара — фото з каталогу AutoKlondayk" loading="lazy" decoding="async" />
+          </picture>
+        </article>
+      </div>
+
+      <div class="groups">
+        <h3 class="groups__title">Усі 20 груп</h3>
+        <ul class="groups__list">
+          {groups.map((g) => (
+            <li>
+              <FutureLink note={SOON} class="group">
+                <span class="group__pic" aria-hidden="true">
+                  {g.img && <img src={asset(`img/${g.img}.webp`)} width="56" height="42" alt="" loading="lazy" decoding="async" />}
+                  {!g.img && g.icon && <Icon name={g.icon} size={26} class="group__icon" />}
+                </span>
+                <span class="group__name">{g.name}</span>
+                <Icon name="arrow" size={18} class="group__arrow" />
+              </FutureLink>
+            </li>
+          ))}
+        </ul>
+        <FutureLink note={SOON} class="future-link--button groups__all">Усі групи каталогу</FutureLink>
+      </div>
+    </div>
+  </div>
+</Section>

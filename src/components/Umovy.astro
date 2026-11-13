@@ -1,0 +1,51 @@
+---
+// Delivery, payment, returns: three real facts, calm tone (C-001, C-002, C-003, geography).
+import Section from "./Section.astro";
+import FutureLink from "./FutureLink.astro";
+import CallButton from "./CallButton.astro";
+import ViberButton from "./ViberButton.astro";
+import { SOON } from "../data/site";
+---
+<Section id="umovy" class="umovy" rec="R-007,G-R004">
+  <div class="wrap">
+    <h2 class="h2 umovy__title">Доставка, оплата і повернення</h2>
+    <div class="facts">
+      <article class="fact fact--a">
+        <p class="fact__big">з 18:00</p>
+        <h3 class="fact__title">Кур'єр по Києву та області</h3>
+        <p class="fact__text">У будні з 18:00. У вихідні доставки немає.</p>
+      </article>
+      <article class="fact fact--b">
+        <p class="fact__big">до 1000 грн</p>
+        <h3 class="fact__title">Повна передоплата для замовлень до 1000 грн</h3>
+        <p class="fact__text">Такі замовлення відправляємо після повної оплати.</p>
+      </article>
+      <article class="fact fact--c">
+        <p class="fact__big">14 днів</p>
+        <h3 class="fact__title">Повернення якісного товару</h3>
+        <p class="fact__text">Обмін або повернення — до 14 днів від продажу, гроші повертаємо не пізніше 7 днів.</p>
+        <p class="fact__small">Не повертаються електрика (крім свічок і лямбда-зондів), техрідини й автохімія (крім моторних олив), товари під замовлення і з ознаками встановлення.</p>
+      </article>
+    </div>
+    <div class="ways">
+      <div class="way">
+        <h3 class="way__title">Нова Пошта</h3>
+        <p>Доставка у відділення по всій Україні.</p>
+      </div>
+      <div class="way">
+        <h3 class="way__title">Самовивіз</h3>
+        <p>З офісу на Кирилівській у будні 11:00–18:00, після підтвердження менеджером.</p>
+      </div>
+      <div class="way">
+        <h3 class="way__title">Оплата</h3>
+        <p>У гривнях: готівкою в офісі або кур'єру, на картку ПриватБанку за домовленістю з менеджером, безготівково за рахунком.</p>
+      </div>
+    </div>
+    <div class="cta-row">
+      <CallButton label="Уточнити доставку" />
+      <ViberButton label="Viber" />
+      <FutureLink note={SOON} class="textlink">Детальніше про доставку</FutureLink>
+      <FutureLink note={SOON} class="textlink">Гарантія і повернення</FutureLink>
+    </div>
+  </div>
+</Section>

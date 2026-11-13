@@ -1,0 +1,10 @@
+/* Sofia Sans Condensed (OFL, Google Fonts variable 100–1000) — local subset Latin + Cyrillic.
+   Standard (Ukrainian/Russian) Cyrillic forms are mapped by default: the stock font and the Fontsource subset
+   ship Bulgarian forms (д like g, т like m), wrong for a Ukrainian page. See decisions.md. */
+@font-face {
+  font-family: "Sofia Sans Condensed UK";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 1000;
+  src: url("../fonts/sofia-sans-condensed-uk-wght.woff2") format("woff2-variations"), url("../fonts/sofia-sans-condensed-uk-wght.woff2") format("woff2");
+}

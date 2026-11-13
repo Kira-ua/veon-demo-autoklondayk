@@ -1,0 +1,36 @@
+---
+// Contacts: phone huge (columns 1–9), address, entrance, hours and actions (10–17). Facts: company.contacts.*.
+import Section from "./Section.astro";
+import Icon from "./Icon.astro";
+import { contacts } from "../data/site";
+---
+<Section id="kontakty" class="kontakty" rec="R-008,R-009">
+  <div class="wrap kontakty__grid">
+    <div class="kontakty__phones">
+      <h2 class="h2">Офіс видачі на Кирилівській</h2>
+      <a class="kontakty__main" href={contacts.phoneMain.href} data-rec="R-002">{contacts.phoneMain.label}</a>
+      <p class="kontakty__main-note">Підбір і замовлення запчастин</p>
+      <ul class="kontakty__more" data-rec="R-002">
+        <li><a href={contacts.phoneSecond.href}><Icon name="phone" /><span>{contacts.phoneSecond.label}</span></a></li>
+        <li><a href={contacts.viber.href}><Icon name="viber" /><span>Viber {contacts.viber.label}</span></a></li>
+      </ul>
+    </div>
+    <div class="kontakty__place">
+      <address class="kontakty__addr">{contacts.address}<br />{contacts.city}, Поділ</address>
+      <div class="kontakty__block">
+        <h3 class="kontakty__sub">Як знайти вхід</h3>
+        <p>{contacts.entrance}</p>
+      </div>
+      <div class="kontakty__block">
+        <h3 class="kontakty__sub">Години роботи</h3>
+        <p>{contacts.hours}</p>
+        <p class="kontakty__small">Самовивіз — після підтвердження замовлення менеджером.</p>
+      </div>
+      <ul class="kontakty__actions">
+        <li><a class="btn btn--outline" href={contacts.maps} target="_blank" rel="noopener noreferrer"><Icon name="route" /><span class="btn__label">Маршрут</span><span class="visually-hidden"> (Google Maps, нова вкладка)</span></a></li>
+        <li><a class="btn btn--outline" href={contacts.instagram} target="_blank" rel="noopener noreferrer" data-rec="R-009"><Icon name="instagram" /><span class="btn__label">Instagram</span><span class="visually-hidden"> (нова вкладка)</span></a></li>
+        <li><a class="btn btn--outline" href={contacts.email.href}><Icon name="mail" /><span class="btn__label">{contacts.email.label}</span></a></li>
+      </ul>
+    </div>
+  </div>
+</Section>
